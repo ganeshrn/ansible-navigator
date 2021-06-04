@@ -593,6 +593,19 @@ class NavigatorPostProcessor:
 
     @staticmethod
     @_post_processor
+    def runner_artifact_dir(
+        entry: Entry, config: ApplicationConfiguration
+    ) -> PostProcessorReturn:
+        # pylint: disable=unused-argument
+        """Post process pass_environment_variable"""
+        messages: List[LogMessage] = []
+        exit_messages: List[ExitMessage] = []
+        if entry.value.current is not C.NOT_SET:
+            entry.value.current = flatten_list(entry.value.current)
+        return messages, exit_messages
+
+    @staticmethod
+    @_post_processor
     def set_environment_variable(
         entry: Entry, config: ApplicationConfiguration
     ) -> PostProcessorReturn:
