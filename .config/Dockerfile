@@ -1,1 +1,1 @@
-FROM ghcr.io/ansible/creator-ee:v0.11.0
+FROM ghcr.io/ansible/creator-ee:v0.14.1
